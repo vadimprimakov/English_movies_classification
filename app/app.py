@@ -6,10 +6,10 @@ import nltk
 
 
 print('Start app')
-df_words = pd.read_csv('oxford_dikt.csv')
-df_idioms = pd.read_csv('theidioms_com.csv', sep='#')
+df_words = pd.read_csv('/Users/vadimprimakov/Documents/Yandex_practicum/English_movies_classification/app/oxford_dikt.csv')
+df_idioms = pd.read_csv('/Users/vadimprimakov/Documents/Yandex_practicum/English_movies_classification/app/oxford_dikt.csv', sep='#')
 model = CatBoostClassifier()
-model.load_model('catboostclassifier_model.cbm')
+model.load_model('/Users/vadimprimakov/Documents/Yandex_practicum/English_movies_classification/app/oxford_dikt.csv')
 features = ['phrases_lenght', 
         'B2', 
         'coleman_liau_index', 
