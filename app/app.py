@@ -6,7 +6,7 @@ import nltk
 
 
 print('Start app')
-df_words = pd.read_csv('https://github.com/vadimprimakov/English_movies_classification/blob/main/app/oxford_dikt.csv', sep=',')
+df_words = pd.read_csv('https://github.com/vadimprimakov/English_movies_classification/blob/main/app/oxford_dikt.csv', on_bad_lines='skip')
 df_idioms = pd.read_csv('https://github.com/vadimprimakov/English_movies_classification/blob/main/app/theidioms_com.csv', sep='#')
 model = CatBoostClassifier()
 model.load_model('https://github.com/vadimprimakov/English_movies_classification/blob/main/app/catboostclassifier_model.cbm')
