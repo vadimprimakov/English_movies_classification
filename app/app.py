@@ -6,7 +6,7 @@ import nltk
 
 
 print('Start app')
-df_words = pd.read_csv('Oxford_dikt.csv')
+df_words = pd.read_csv('oxford_dikt.csv')
 df_idioms = pd.read_csv('theidioms_com.csv', sep='#')
 model = CatBoostClassifier()
 model.load_model('catboostclassifier_model.cbm')
