@@ -7,8 +7,8 @@ import pickle
 
 
 print('Start app')
-df_words = pd.read_csv('https://github.com/vadimprimakov/English_movies_classification/blob/main/app/oxford_dikt.csv', on_bad_lines='skip')
-df_idioms = pd.read_csv('https://github.com/vadimprimakov/English_movies_classification/blob/main/app/theidioms_com.csv', sep='#', on_bad_lines='skip')
+df_words = pd.read_csv('app/oxford_dikt.csv')
+df_idioms = pd.read_csv('app/theidioms_com.csv', sep='#')
 model = CatBoostClassifier()
 #PATH_DATA_LOCAL = '/Users/vadimprimakov/Documents/Yandex_practicum/English_movies_classification/app/'
 #PATH_DATA_REMOTE = 'Streamlit_app/'
