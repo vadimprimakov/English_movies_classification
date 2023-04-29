@@ -4,11 +4,15 @@ from catboost import CatBoostClassifier, Pool
 import pandas as pd
 import nltk
 import pickle
+nltk.download('averaged_perceptron_tagger')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+nltk.download('stopwords')
 
 
 print('Start app')
-df_words = pd.read_csv('https://github.com/vadimprimakov/English_movies_classification/blob/main/app/oxford_dikt.csv', on_bad_lines='skip')
-df_idioms = pd.read_csv('https://github.com/vadimprimakov/English_movies_classification/blob/main/app/theidioms_com.csv', sep='#', on_bad_lines='skip')
+df_words = pd.read_csv('app/oxford_dikt.csv')
+df_idioms = pd.read_csv('app/theidioms_com.csv', sep='#')
 model = CatBoostClassifier()
 #PATH_DATA_LOCAL = '/Users/vadimprimakov/Documents/Yandex_practicum/English_movies_classification/app/'
 #PATH_DATA_REMOTE = 'Streamlit_app/'
@@ -27,7 +31,7 @@ model = CatBoostClassifier()
         
 #    return model
 #model = load_model(catboostclassifier_model.pkl)
-model.load_model('catboostclassifier_model.cbm')
+model.load_model('app/catboostclassifier_model.cbm')
 features = ['phrases_lenght', 
         'B2', 
         'coleman_liau_index', 
