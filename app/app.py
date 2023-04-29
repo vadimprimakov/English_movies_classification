@@ -14,23 +14,6 @@ print('Start app')
 df_words = pd.read_csv('app/oxford_dikt.csv')
 df_idioms = pd.read_csv('app/theidioms_com.csv', sep='#')
 model = CatBoostClassifier()
-#PATH_DATA_LOCAL = '/Users/vadimprimakov/Documents/Yandex_practicum/English_movies_classification/app/'
-#PATH_DATA_REMOTE = 'Streamlit_app/'
-
-#def load_model(model_name):
-    
-#    file_local = f'{PATH_DATA_LOCAL}{model_name}'
-#    file_remote = f'{PATH_DATA_REMOTE}{model_name}'
-    
-#    if os.path.isfile(file_local):
-#        with open(file_local, 'rb') as file:
-#            model = pickle.load(file)
-#    else:
-#        with open(file_remote, 'rb') as file:
-#            model = pickle.load(file)
-        
-#    return model
-#model = load_model(catboostclassifier_model.pkl)
 model.load_model('app/catboostclassifier_model.cbm')
 features = ['phrases_lenght', 
         'B2', 
@@ -87,11 +70,11 @@ def make_color(data, model):
     predict_pool = Pool(data=data,
                        )
     predict = model.predict(predict_pool)
-    if predict == 1 or 2:
+    if predict == 1 or predict == 2:
         value_color = 'green'
-    elif predict == 3 or 4:
+    elif predict == 3 or predict == 4:
         value_color = 'blue'
-    elif predict == 5 or 6:
+    elif predict == 5 or predict == 6:
         value_color = 'red'
     return value_color
 
