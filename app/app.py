@@ -9,25 +9,25 @@ import pickle
 print('Start app')
 df_words = pd.read_csv('https://github.com/vadimprimakov/English_movies_classification/blob/main/app/oxford_dikt.csv', on_bad_lines='skip')
 df_idioms = pd.read_csv('https://github.com/vadimprimakov/English_movies_classification/blob/main/app/theidioms_com.csv', sep='#', on_bad_lines='skip')
-#model = CatBoostClassifier()
-PATH_DATA_LOCAL = '/Users/vadimprimakov/Documents/Yandex_practicum/English_movies_classification/app/'
-PATH_DATA_REMOTE = 'Streamlit_app/'
-@st.cache_resource
-def load_model(model_name):
+model = CatBoostClassifier()
+#PATH_DATA_LOCAL = '/Users/vadimprimakov/Documents/Yandex_practicum/English_movies_classification/app/'
+#PATH_DATA_REMOTE = 'Streamlit_app/'
+
+#def load_model(model_name):
     
-    file_local = f'{PATH_DATA_LOCAL}{model_name}'
-    file_remote = f'{PATH_DATA_REMOTE}{model_name}'
+#    file_local = f'{PATH_DATA_LOCAL}{model_name}'
+#    file_remote = f'{PATH_DATA_REMOTE}{model_name}'
     
-    if os.path.isfile(file_local):
-        with open(file_local, 'rb') as file:
-            model = pickle.load(file)
-    else:
-        with open(file_remote, 'rb') as file:
-            model = pickle.load(file)
+#    if os.path.isfile(file_local):
+#        with open(file_local, 'rb') as file:
+#            model = pickle.load(file)
+#    else:
+#        with open(file_remote, 'rb') as file:
+#            model = pickle.load(file)
         
-    return model
-model = load_model(catboostclassifier_model.pkl)
-#model.load_model('https://github.com/vadimprimakov/English_movies_classification/blob/main/app/catboostclassifier_model.pkl')
+#    return model
+#model = load_model(catboostclassifier_model.pkl)
+model.load_model('https://github.com/vadimprimakov/English_movies_classification/blob/main/app/catboostclassifier_model.cbm')
 features = ['phrases_lenght', 
         'B2', 
         'coleman_liau_index', 
