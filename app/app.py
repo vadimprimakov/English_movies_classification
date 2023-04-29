@@ -99,35 +99,35 @@ if upload_file:
     else:
         st.header(f'Данный фильм имеет уровень **:{make_color(df[features], model)}[{make_predict(df[features], model)}]** по классификации CEFR')
     
-        level_bar = st.progress(0)
-        for i in range(round(1/6 * make_level_bar(df[features], model) * 100)):
-            level_bar.progress(i)
-            time.sleep(0.001)
+    #    level_bar = st.progress(0)
+    #    for i in range(round(1/6 * make_level_bar(df[features], model) * 100)):
+    #        level_bar.progress(i)
+    #        time.sleep(0.001)
         
-            button = st.button('Показать анализ')
-            if button:
+        button = st.button('Показать анализ')
+        if button:
 
-                st.header('Содержание слов по сложности согласно Оксфордского словаря')
-                st.bar_chart(df.loc[0, ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']])
+            st.header('Содержание слов по сложности согласно Оксфордского словаря')
+            st.bar_chart(df.loc[0, ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']])
 
-                st.write(pd.DataFrame(
-                    {
-                        'Характеристика':['Продолжительность фильма',
-                                          'Количество слов',
-                                          'Количество уникальных слов',
-                                          'Количество фраз',
-                                          'Средний темп речи',
-                                          'Лексическое разнообразие',
-                                         ],
-                        'Значение':[f'{df.loc[0,"film_lenght"]//3600} ч. {(df.loc[0,"film_lenght"]%3600)//60} м.',
-                                    df.loc[0,'words_count'],
-                                    df.loc[0,'words_unique_count'],
-                                    df.loc[0,'phrases_count'],
-                                    f'{round(df.loc[0,"words_count"] / df.loc[0,"film_lenght"] * 60)} сл/мин',
-                                    round(df.loc[0,'lexical_diversity'], 3),
-                                   ],
-                    }
-                ))
+            st.write(pd.DataFrame(
+                {
+                    'Характеристика':['Продолжительность фильма',
+                                      'Количество слов',
+                                      'Количество уникальных слов',
+                                      'Количество фраз',
+                                      'Средний темп речи',
+                                      'Лексическое разнообразие',
+                                     ],
+                    'Значение':[f'{df.loc[0,"film_lenght"]//3600} ч. {(df.loc[0,"film_lenght"]%3600)//60} м.',
+                                df.loc[0,'words_count'],
+                                df.loc[0,'words_unique_count'],
+                                df.loc[0,'phrases_count'],
+                                f'{round(df.loc[0,"words_count"] / df.loc[0,"film_lenght"] * 60)} сл/мин',
+                                round(df.loc[0,'lexical_diversity'], 3),
+                               ],
+                }
+            ))
 
 st.caption('------')
 
