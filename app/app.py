@@ -99,9 +99,9 @@ if upload_file:
     else:
         st.header(f'Данный фильм имеет уровень **:{make_color(df[features], model)}[{make_predict(df[features], model)}]** по классификации CEFR')
     
-    level_bar = st.progress(0)
-    for i in range(round(1/6 * make_level_bar(df[features], model) * 100)):
-        level_bar.progress(i)
+#    level_bar = st.progress(0)
+#    for i in range(round(1/6 * make_level_bar(df[features], model) * 100)):
+#        level_bar.progress(i)
        # time.sleep(0.001)
         
         button = st.button('Показать анализ')
