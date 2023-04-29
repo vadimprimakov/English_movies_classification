@@ -10,12 +10,23 @@ print('Start app')
 df_words = pd.read_csv('https://github.com/vadimprimakov/English_movies_classification/blob/main/app/oxford_dikt.csv', on_bad_lines='skip')
 df_idioms = pd.read_csv('https://github.com/vadimprimakov/English_movies_classification/blob/main/app/theidioms_com.csv', sep='#', on_bad_lines='skip')
 #model = CatBoostClassifier()
+PATH_DATA_LOCAL = ''
+PATH_DATA_REMOTE = 'Streamlit_app/'
 @st.experimental_memo
-def load():
-    with open('catboostclassifier_model.pkl', 'rb') as file:
-        model = pickle.load(file)
+def load_model(model_name):
+    
+    file_local = f'{PATH_DATA_LOCAL}{model_name}'
+    file_remote = f'{PATH_DATA_REMOTE}{model_name}'
+    
+    if os.path.isfile(file_local):
+        with open(file_local, 'rb') as file:
+            model = pickle.load(file)
+    else:
+        with open(file_remote, 'rb') as file:
+            model = pickle.load(file)
+        
     return model
-model = load()
+model = load_model(catboostclassifier_model.pkl)
 #model.load_model('https://github.com/vadimprimakov/English_movies_classification/blob/main/app/catboostclassifier_model.pkl')
 features = ['phrases_lenght', 
         'B2', 
