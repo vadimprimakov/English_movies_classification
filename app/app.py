@@ -3,7 +3,7 @@ from srt_procesing import sub_processing
 from catboost import CatBoostClassifier, Pool
 import pandas as pd
 import nltk
-import pickle
+import time
 nltk.download('averaged_perceptron_tagger')
 nltk.download('wordnet')
 nltk.download('omw-1.4')
