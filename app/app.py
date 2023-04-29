@@ -10,6 +10,7 @@ print('Start app')
 df_words = pd.read_csv('https://github.com/vadimprimakov/English_movies_classification/blob/main/app/oxford_dikt.csv', on_bad_lines='skip')
 df_idioms = pd.read_csv('https://github.com/vadimprimakov/English_movies_classification/blob/main/app/theidioms_com.csv', sep='#', on_bad_lines='skip')
 #model = CatBoostClassifier()
+@st.cache_resource
 def load():
     with open('catboostclassifier_model.pkl', 'rb') as file:
         model = pickle.load(file)
