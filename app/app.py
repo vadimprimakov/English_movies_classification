@@ -12,7 +12,7 @@ df_idioms = pd.read_csv('https://github.com/vadimprimakov/English_movies_classif
 #model = CatBoostClassifier()
 PATH_DATA_LOCAL = '/Users/vadimprimakov/Documents/Yandex_practicum/English_movies_classification/app/'
 PATH_DATA_REMOTE = 'Streamlit_app/'
-@st.experimental_memo
+@st.cache_resource
 def load_model(model_name):
     
     file_local = f'{PATH_DATA_LOCAL}{model_name}'
