@@ -27,7 +27,7 @@ model = CatBoostClassifier()
         
 #    return model
 #model = load_model(catboostclassifier_model.pkl)
-model.load_model('catboostclassifier_model.cbm')
+model.load_model('app/catboostclassifier_model.cbm')
 features = ['phrases_lenght', 
         'B2', 
         'coleman_liau_index', 
