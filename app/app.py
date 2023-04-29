@@ -11,7 +11,7 @@ df_words = pd.read_csv('https://github.com/vadimprimakov/English_movies_classifi
 df_idioms = pd.read_csv('https://github.com/vadimprimakov/English_movies_classification/blob/main/app/theidioms_com.csv', sep='#', on_bad_lines='skip')
 #model = CatBoostClassifier()
 def load():
-    with open('/Users/vadimprimakov/Documents/Yandex_practicum/English_movies_classification/app/catboostclassifier_model.pkl', 'rb') as file:
+    with open('https://github.com/vadimprimakov/English_movies_classification/blob/main/app/catboostclassifier_model.pkl', 'rb') as file:
         model = pickle.load(file)
     return model
 model = load()
