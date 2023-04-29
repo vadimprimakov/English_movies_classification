@@ -4,6 +4,7 @@ from catboost import CatBoostClassifier, Pool
 import pandas as pd
 import nltk
 import pickle
+nltk.download('averaged_perceptron_tagger')
 
 
 print('Start app')
