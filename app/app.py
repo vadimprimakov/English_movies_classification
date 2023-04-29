@@ -5,6 +5,9 @@ import pandas as pd
 import nltk
 import pickle
 nltk.download('averaged_perceptron_tagger')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+nltk.download('stopwords')
 
 
 print('Start app')
