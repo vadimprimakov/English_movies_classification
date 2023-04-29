@@ -78,6 +78,17 @@ def make_color(data, model):
         value_color = 'red'
     return value_color
 
+def make_level_bar(data, model):
+    """
+    :param data:
+    :param model:
+    :return:
+    """
+    predict_pool = Pool(data=data,
+                       )
+    predict = model.predict(predict_pool)
+    return (predict[0][0])
+
 if upload_file:
 
     print(upload_file.name)
@@ -87,7 +98,12 @@ if upload_file:
         st.write('Файл субтитров имеет неизвестный формат')
     else:
         st.header(f'Данный фильм имеет уровень **:{make_color(df[features], model)}[{make_predict(df[features], model)}]** по классификации CEFR')
-
+    
+    level_bar = st.progress(0)
+    for i in range(round(1/6 * make_level_bar(df[features], model) * 100)):
+        level_bar.progress(i)
+        time.sleep(0.001)
+        
         button = st.button('Показать анализ')
         if button:
 
