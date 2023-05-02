@@ -7,9 +7,49 @@
 - у некоторых фильмов указаны несколько меток, например А2/А2+. Нужно решить как быть с ними.
 
 **Исходные данные**
-Размеченный датасет с названиями фильмов, субтитрами и меткой уровня сложности языка ( A1/A2/B1/B2/C1/C2)
+Размеченный датасет с названиями фильмов, субтитрами и меткой уровня сложности языка (A1/A2/B1/B2/C1/C2)
 
-**Признаки**
+**Полученные признаки**
+
+- 'film_lenght', 
+- 'text_len', 
+- 'lematise_text_len', 
+- 'sumb_persecond',
+- 'phrases_lenght',
+- 'sumb_persecond_frases',
+- 'sumb_perword',
+- 'num_sentence',
+- 'word_persentence',
+- 'A1' - доля уникальных слов сложности A1,
+- 'A2' - доля уникальных слов сложности A2,
+- 'B1' - доля уникальных слов сложности B1,
+- 'B2' - доля уникальных слов сложности B2,
+- 'C1' - доля уникальных слов сложности C1,
+- 'C2' - доля уникальных слов сложности C2,
+- 'phrases_count',
+- 'words_unique_perphrase', 
+- 'words_count',
+- 'words_unique_count',
+- 'words_unique_persecond',
+- 'lexical_diversity',
+- 'flesch_reading_ease',
+- 'flesch_kincaid_grade',
+- 'smog_index',
+- 'coleman_liau_index' - уровень качества текста по формуле Коулмана-Лиау,
+- 'automated_readability_index',
+- 'dale_chall_readability_score',
+- 'difficult_words',
+- 'linsear_write_formula',
+- 'gunning_fog',
+- 'text_standard',
+- 'fernandez_huerta',
+- 'szigriszt_pazos',
+- 'gutierrez_polini',
+- 'crawford',
+- 'gulpease_index',
+- 'osman',
+- 'num_idioms',
+- gerund_persentence - среднее количество герундия во фразе
 
 
 **Целевой признак**
@@ -40,12 +80,12 @@
 
 Модель: CatBoostClassifier<br/>
 
-Набор признаков:<br/>
+Набор выбранных признаков:<br/>
 - phrases_lenght - средняя длина фразы<br/>
 - B2 - доля уникальных слов сложности B2<br/>
 - coleman_liau_index - уровень качества текста по формуле Коулмана-Лиау<br/>
 - word_persentence - среднее количество слов во фразе<br/>
-- gulpease_index - индекс текста Gulpease(вообще он для итальянского текста, но подошел и к английскому)<br/>
+- gulpease_index - индекс текста Gulpease<br/>
 - gerund_persentence - среднее количество герундия во фразе<br/>
 - words_unique_perphrase - среднее количество уникальных слов во фразе<br/>
 - words_unique_persecond - среднее количество уникальных слов в секунду<br/>
@@ -61,9 +101,9 @@
 Шаг 9. Наибольшую важность имеют признаки:<br/>
 
 - words_unique_persecond - среднее количество уникальных слов в секунду<br/>
-- idioms_persentence - среднее количество идиом во фразе<br/>
-- avg_dificulty - средняя сложность слов<br/>
-- B2 - доля уникальных слов уровня B2<br/>
+- words_unique_perphrase - среднее количество уникальных слов во фразе<br/>
+- coleman_liau_index - уровень качества текста по формуле Коулмана-Лиау<br/>
+- word_persentence - среднее количество слов во фразе<br/>
 
 
 ## Итог исследования:
