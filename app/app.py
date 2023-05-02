@@ -27,10 +27,6 @@ features = ['phrases_lenght',
         'avg_dificulty',
         'idioms_persentence']
 
-class f:
-    BOLD = "\033[1m"
-    ITALIC = "\033[3m"
-    END = "\033[0m"
 
 TITLE = 'Предсказание уровня английского языка по субтитрам'
 st.set_page_config(
@@ -98,11 +94,10 @@ if upload_file:
         st.write('Файл субтитров имеет неизвестный формат')
     else:
         st.header(f'Данный фильм имеет уровень **:{make_color(df[features], model)}[{make_predict(df[features], model)}]** по классификации CEFR')
-    
-    #    level_bar = st.progress(0)
-    #    for i in range(round(1/6 * make_level_bar(df[features], model) * 100)):
-    #        level_bar.progress(i)
-    #        time.sleep(0.001)
+        level_bar = st.progress(0)
+        for i in range(min(round(1/6 * make_level_bar(df[features], model) * 100), 101)):
+            level_bar.progress(i)
+            time.sleep(0.001)
         
         button = st.button('Показать анализ')
         if button:
